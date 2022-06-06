@@ -1,18 +1,34 @@
 import React, { useState } from 'react'
 
 const PizzaBLock = ({ id, imageUrl, title, types, sizes, price, category, rating }) => {
+  const [activeType, setActiveType] = useState(0)
+  const [sizeActive, setSizeActive] = useState(0)
+  const typeNames = ['тонкое', 'традиционное']
   return (
     <div className='pizza-block'>
       <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
       <h4 className='pizza-block__title'>{title}</h4>
       <div className='pizza-block__selector'>
         <ul>
-          <li className='active'>тонкое</li>
-          <li>традиционное</li>
+          {types.map((typeId) => (
+            <li
+              key={typeId}
+              onClick={() => setActiveType(typeId)}
+              className={activeType === typeId ? 'active' : ''}
+            >
+              {typeNames[typeId]}
+            </li>
+          ))}
         </ul>
         <ul>
-          {sizes.map((e) => (
-            <li className='active'>{e} см.</li>
+          {sizes.map((size, index) => (
+            <li
+              key={size}
+              onClick={() => setSizeActive(index)}
+              className={sizeActive === index ? 'active' : ''}
+            >
+              {size} см.
+            </li>
           ))}
         </ul>
       </div>
