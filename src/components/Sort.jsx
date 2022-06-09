@@ -4,12 +4,12 @@ const Sort = () => {
   const [open, setOpen] = useState(false)
   const [selected, setSelected] = useState(0)
   const list = ['популярности', 'цене', 'алфавиту']
+  const sortName = list[selected]
 
   const onClickListItem = (i) => {
     setSelected(i)
     setOpen(false)
   }
-  const sortName = list[selected]
 
   return (
     <div className='sort'>
