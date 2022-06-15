@@ -4,14 +4,16 @@ import Categories from '../components/Categories'
 import PizzaBLock from '../components/PizzaBlock'
 import Skeleton from '../components/PizzaBlock/Skeleton'
 import Pagination from '../components/Pagination'
+import { useContext } from 'react'
+import { SearchContext } from '../App'
 
-const Home = ({ searchValue }) => {
+const Home = () => {
   const [items, setItems] = useState([])
   const [isLoading, setisLoading] = useState(true)
   const [categoryId, setCategoryId] = useState(0)
   const [sortType, setSortType] = useState({ name: 'популярности', sortProperty: 'rating' })
   const [currentPage, setcurrentPage] = useState(1)
-
+  const { searchValue } = useContext(SearchContext)
   const pizzas = items.map((e) => <PizzaBLock key={e.id} {...e} />)
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
 
