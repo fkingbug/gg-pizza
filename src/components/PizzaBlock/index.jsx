@@ -19,7 +19,7 @@ const PizzaBLock = ({ id, imageUrl, title, types, sizes, price, category, rating
       price,
       imageUrl,
       type: typeNames[activeType],
-      size: sizeActive,
+      size: sizes[sizeActive],
     }
     console.log(item)
     dispatch(addItem(item))
