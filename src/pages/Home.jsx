@@ -35,20 +35,31 @@ const Home = () => {
     dispatch(setCurrentPage(number))
   }
 
-  const fetchPizzas = () => {
+  const fetchPizzas = async () => {
     setisLoading(true)
     const order = sort.sortProperty.includes('-') ? 'asc' : 'desc'
     const sortBy = sort.sortProperty.replace('-', '')
     const category = categoryId > 0 ? `category=${categoryId}` : ''
     const search = searchValue ? `&search=${searchValue}` : ''
-    axios
-      .get(
+    // await axios
+    //   .get(
+    //     `https://613e3b5094dbd600172abb2c.mockapi.io/pizzas?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
+    //   )
+    //   .then((res) => {
+    //     setItems(res.data)
+    //     setisLoading(false)
+    //   }).catch(error => {console.error(error) ;  setisLoading(false) })
+
+    try {
+      const res = await axios.get(
         `https://613e3b5094dbd600172abb2c.mockapi.io/pizzas?page=${currentPage}&limit=4&${category}&sortBy=${sortBy}&order=${order}${search}`
       )
-      .then((res) => {
-        setItems(res.data)
-        setisLoading(false)
-      })
+      setItems(res.data)
+    } catch (error) {
+      console.log('error', error)
+    } finally {
+      setisLoading(false)
+    }
   }
   // Если был 1 рендер  и пмоеняли url то меняй данные из url
   useEffect(() => {
