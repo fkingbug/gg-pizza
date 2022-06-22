@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import qs from 'qs'
 
@@ -28,7 +28,11 @@ const Home = () => {
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter)
   const { items, status } = useSelector(selectPizzaData)
 
-  const pizzas = items.map((e) => <PizzaBLock key={e.id} {...e} />)
+  const pizzas = items.map((obj) => (
+    <Link key={obj.id} to={`/pizza/${obj.id}`}>
+      <PizzaBLock {...obj} />
+    </Link>
+  ))
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
 
   const onChangeCategory = (id) => {
