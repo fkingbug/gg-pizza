@@ -35,8 +35,8 @@ const Home: FC = () => {
   ))
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
 
-  const onChangeCategory = (id: number) => {
-    dispatch(setCategoryId(id))
+  const onChangeCategory = (idx: number) => {
+    dispatch(setCategoryId(idx))
   }
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page))
