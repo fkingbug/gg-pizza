@@ -10,15 +10,11 @@ import PizzaBLock from '../components/PizzaBlock'
 import Skeleton from '../components/PizzaBlock/Skeleton'
 import Pagination from '../components/Pagination'
 
-import {
-  FilterSliceState,
-  selectFilter,
-  setCategoryId,
-  setCurrentPage,
-  setFilters,
-} from '../redux/slices/filterSlice'
-import { fetchPizzas, SearchPizzaParam, selectPizzaData } from '../redux/slices/pizzaSlice'
 import { useAppDispatch } from '../redux/store'
+import { selectFilter } from '../redux/filter/selectors'
+import { selectPizzaData } from '../redux/pizzas/selectors'
+import { setCategoryId, setCurrentPage } from '../redux/filter/slice'
+import { fetchPizzas } from '../redux/pizzas/asyncActions'
 
 const Home: FC = () => {
   const dispatch = useAppDispatch()

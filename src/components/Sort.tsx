@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, FC, memo } from 'react'
 import { useDispatch } from 'react-redux'
-import { setSort, SortPropertEnam } from '../redux/slices/filterSlice'
+import { setSort } from '../redux/filter/slice'
+import { SortPropertEnam } from '../redux/filter/types'
 
 type SortItem = {
   name: string
@@ -8,6 +9,9 @@ type SortItem = {
 }
 type SPP = {
   value: SortItem
+}
+type PopupClick = MouseEvent & {
+  path: Node[]
 }
 export const sortList: SortItem[] = [
   { name: 'популярности (DESC)', sortProperty: SortPropertEnam.RATING_DESC },
@@ -17,9 +21,7 @@ export const sortList: SortItem[] = [
   { name: 'алфавиту (DESC)', sortProperty: SortPropertEnam.TITLE_DESC },
   { name: 'алфавиту (ASC)', sortProperty: SortPropertEnam.TITLE_ASC },
 ]
-type PopupClick = MouseEvent & {
-  path: Node[]
-}
+
 const SortPopap: FC<SPP> = memo(({ value }) => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
