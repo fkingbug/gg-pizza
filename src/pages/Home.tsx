@@ -1,10 +1,10 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC, useCallback, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import qs from 'qs'
 
-import Sort, { sortList } from '../components/Sort'
+import SortPopap, { sortList } from '../components/Sort'
 import Categories from '../components/Categories'
 import PizzaBLock from '../components/PizzaBlock'
 import Skeleton from '../components/PizzaBlock/Skeleton'
@@ -30,12 +30,12 @@ const Home: FC = () => {
   const { categoryId, sort, currentPage, searchValue } = useSelector(selectFilter)
   const { items, status } = useSelector(selectPizzaData)
 
-  const pizzas = items.map((obj: any) => <PizzaBLock {...obj} />)
+  const pizzas = items.map((obj: any) => <PizzaBLock key={obj.id} {...obj} />)
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />)
 
-  const onChangeCategory = (idx: number) => {
+  const onChangeCategory = useCallback((idx: number) => {
     dispatch(setCategoryId(idx))
-  }
+  }, [])
   const onChangePage = (page: number) => {
     dispatch(setCurrentPage(page))
   }
@@ -93,7 +93,7 @@ const Home: FC = () => {
       <div className='container'>
         <div className='content__top'>
           <Categories value={categoryId} onChangeCategory={onChangeCategory} />
-          <Sort />
+          <SortPopap value={sort} />
         </div>
         <h2 className='content__title'>Все пиццы</h2>
         {status === 'Error' ? (
