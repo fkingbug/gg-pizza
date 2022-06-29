@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react'
+import React, { FC, memo } from 'react'
 // import useWhyDidYouUpdate from 'ahooks/lib/useWhyDidYouUpdate'
 type CategoriesProps = {
   value: number
