@@ -4,11 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import qs from 'qs'
 
-import SortPopap, { sortList } from '../components/Sort'
-import Categories from '../components/Categories'
-import PizzaBLock from '../components/PizzaBlock'
-import Skeleton from '../components/PizzaBlock/Skeleton'
-import Pagination from '../components/Pagination'
+import { sortList } from '../components/Sort'
+import { Categories, SortPopap, Skeleton, PizzaBLock, Pagination } from '../components'
 
 import { useAppDispatch } from '../redux/store'
 import { selectFilter } from '../redux/filter/selectors'

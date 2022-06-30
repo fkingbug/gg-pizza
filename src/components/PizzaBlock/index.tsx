@@ -43,7 +43,6 @@ const PizzaBLock: FC<PizzaBLockProps> = ({
       size: sizes[sizeActive],
       count: 0,
     }
-    console.log(item)
     dispatch(addItem(item))
   }
   return (
