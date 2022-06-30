@@ -7,7 +7,7 @@ type PaginationProp = {
   onChangePage: (id: number) => void
 }
 
-const Pagination: FC<PaginationProp> = ({ currentPage, onChangePage }) => {
+export const Pagination: FC<PaginationProp> = ({ currentPage, onChangePage }) => {
   return (
     <ReactPaginate
       className={styles.root}
@@ -21,5 +21,3 @@ const Pagination: FC<PaginationProp> = ({ currentPage, onChangePage }) => {
     />
   )
 }
-
-export default Pagination

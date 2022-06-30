@@ -22,7 +22,7 @@ export const sortList: SortItem[] = [
   { name: 'алфавиту (ASC)', sortProperty: SortPropertEnam.TITLE_ASC },
 ]
 
-const SortPopap: FC<SPP> = memo(({ value }) => {
+export const SortPopap: FC<SPP> = memo(({ value }) => {
   const dispatch = useDispatch()
   const [open, setOpen] = useState(false)
   const sortRef = useRef<HTMLDivElement>(null)
@@ -80,5 +80,3 @@ const SortPopap: FC<SPP> = memo(({ value }) => {
     </div>
   )
 })
-
-export default SortPopap

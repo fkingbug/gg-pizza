@@ -6,7 +6,7 @@ type CategoriesProps = {
 }
 const categories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
 
-const Categories: FC<CategoriesProps> = memo(({ value, onChangeCategory }) => {
+export const Categories: FC<CategoriesProps> = memo(({ value, onChangeCategory }) => {
   // useWhyDidYouUpdate('Categories', { value, onChangeCategory })
 
   return (
@@ -25,5 +25,3 @@ const Categories: FC<CategoriesProps> = memo(({ value, onChangeCategory }) => {
     </div>
   )
 })
-
-export default Categories

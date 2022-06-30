@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import logoSvg from '../assets/img/pizza-logo.svg'
 import { selectCart } from '../redux/cart/selectors'
-import Search from './Search'
+import { Search } from './'
 
-const Header = () => {
+export const Header = () => {
   const { items, totalPrice } = useSelector(selectCart)
   const { pathname } = useLocation()
   const isMounted = useRef(false)
@@ -74,4 +74,3 @@ const Header = () => {
     </div>
   )
 }
-export default Header

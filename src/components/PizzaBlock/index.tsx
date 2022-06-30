@@ -16,7 +16,7 @@ type PizzaBLockProps = {
   category: number
   rating: number
 }
-const PizzaBLock: FC<PizzaBLockProps> = ({
+export const PizzaBLock: FC<PizzaBLockProps> = ({
   id,
   imageUrl,
   title,
@@ -99,5 +99,3 @@ const PizzaBLock: FC<PizzaBLockProps> = ({
     </div>
   )
 }
-
-export default PizzaBLock
